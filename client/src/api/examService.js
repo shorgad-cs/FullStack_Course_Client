@@ -2,7 +2,10 @@ import { exams } from './mockDb';
 
 const DELAY = 500;
 
+
 export const getAllExams = () => {
+  // [הערת סטודנט]: אנחנו מחזירים Promise כדי שהקומפוננטה תוכל לעשות await.
+  // כרגע זה Mock, אבל הקומפוננטה לא יודעת את זה!
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve([...exams]);
@@ -13,6 +16,8 @@ export const getAllExams = () => {
 export const getExamById = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
+      // [הערת סטודנט]: חיפוש המבחן במערך המקומי. 
+      // בעתיד זה יוחלף בשאילתת SELECT ב-SQL או ב-MongoDB.
       const exam = exams.find(e => e.id === id);
       if (exam) {
         resolve({ ...exam });
