@@ -52,7 +52,10 @@ const StudentPortal = () => {
 
         {exam && (
           <div className="mt-4 border-top pt-3">
-            <h3>Ready to start: {exam.title}</h3>
+            <h3>
+              Ready to start: {exam.title}
+              <span className="badge bg-info text-dark ms-2">{exam.questions.length} questions</span>
+            </h3>
             <p className="lead">This exam has {exam.questions.length} questions.</p>
             <button className="btn btn-success">Begin Now</button>
           </div>
